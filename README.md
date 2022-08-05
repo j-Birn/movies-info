@@ -6,3 +6,4 @@
 - TailWindCSS
 - Axios
 - OMDb API
+- Debounce-input
