@@ -12,7 +12,7 @@ function App() {
   const getData = async (search) => {
     if (searchQuery.length > 2) {
       const response = await axios.get(
-        `http://www.omdbapi.com/?s=${search}&apikey=${VITE_API_KEY}`
+        `https://www.omdbapi.com/?s=${search}&apikey=${VITE_API_KEY}`
       );
       setMoviesList(response.data.Search);
     } else {
