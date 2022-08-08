@@ -1,4 +1,6 @@
-# Movies Info App
+# Movies Info App | Приложение информации о фильмах и сериалах
+
+## App | Приложение: https://vercel.com/jbirn/movies-info-vercel/GjKgcYmXnoaTkWQRRYDUMLiNRDuL
 
 ## Stack:
 
