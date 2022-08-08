@@ -7,7 +7,7 @@ const MovieInfo = ({ selectedMovie }) => {
 
   useEffect(() => {
     axios
-      .get(`http://www.omdbapi.com/?i=${selectedMovie}&apikey=${VITE_API_KEY}`)
+      .get(`https://www.omdbapi.com/?i=${selectedMovie}&apikey=${VITE_API_KEY}`)
       .then((result) => setMovieInfo(result.data));
   }, [selectedMovie]);
 
@@ -47,6 +47,11 @@ const MovieInfo = ({ selectedMovie }) => {
         <div className="text-lg font-medium my-1 ">
           Plot: <span className="text-cyan-400">{movieInfo.Plot}</span>
         </div>
+      </div>
+      <div className="rounded-full">
+        <button>
+          <img className=" w-8" src="/cancel.svg" alt="close" />
+        </button>
       </div>
     </div>
   );
