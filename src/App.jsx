@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
+import MovieInfo from "./components/MovieInfo";
 import Movies from "./components/Movies";
 
 function App() {
@@ -8,13 +9,18 @@ function App() {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [moviesList, setMoviesList] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState("");
 
   const getData = async (search) => {
     if (searchQuery.length > 2) {
-      const response = await axios.get(
-        `https://www.omdbapi.com/?s=${search}&apikey=${VITE_API_KEY}`
-      );
-      setMoviesList(response.data.Search);
+      try {
+        const response = await axios.get(
+          `https://www.omdbapi.com/?s=${search}&apikey=${VITE_API_KEY}`
+        );
+        setMoviesList(response.data.Search);
+      } catch (e) {
+        console.log(e.message);
+      }
     } else {
       setMoviesList([]);
     }
@@ -30,7 +36,8 @@ function App() {
   return (
     <div>
       <Header getQuery={getQuery} query={searchQuery} />
-      <Movies movies={moviesList} />
+      {selectedMovie && <MovieInfo selectedMovie={selectedMovie} />}
+      <Movies movies={moviesList} select={setSelectedMovie} />
     </div>
   );
 }
