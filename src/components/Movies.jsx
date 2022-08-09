@@ -6,7 +6,12 @@ const Movies = memo(({ movies, select }) => {
   return (
     <div className="flex flex-row flex-wrap justify-evenly p-7 gap-4">
       {movies?.length === 0 ? (
-        <div className="text-white">no movies yet</div>
+        <div>
+          <div className="">
+            <img className="" src="./cinema.svg" alt="cinema icon" />
+          </div>
+          <span className="text-white text-4xl capitalize">no movies yet</span>
+        </div>
       ) : (
         movies?.map((movie) => (
           <SingleMovie key={movie.imdbID} movie={movie} select={select} />

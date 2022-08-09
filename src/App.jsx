@@ -11,6 +11,8 @@ function App() {
   const [moviesList, setMoviesList] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState("");
 
+  const closeMovieInfo = () => setSelectedMovie(null);
+
   const getData = async (search) => {
     if (searchQuery.length > 2) {
       try {
@@ -36,7 +38,9 @@ function App() {
   return (
     <div>
       <Header getQuery={getQuery} query={searchQuery} />
-      {selectedMovie && <MovieInfo selectedMovie={selectedMovie} />}
+      {selectedMovie && (
+        <MovieInfo selectedMovie={selectedMovie} close={closeMovieInfo} />
+      )}
       <Movies movies={moviesList} select={setSelectedMovie} />
     </div>
   );
