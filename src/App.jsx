@@ -13,6 +13,8 @@ function App() {
 
   const closeMovieInfo = () => setSelectedMovie(null);
 
+  const clearSearchQuery = () => setSearchQuery("");
+
   const getData = async (search) => {
     if (searchQuery.length > 2) {
       try {
@@ -37,7 +39,11 @@ function App() {
 
   return (
     <div>
-      <Header getQuery={getQuery} query={searchQuery} />
+      <Header
+        getQuery={getQuery}
+        query={searchQuery}
+        clearSearch={clearSearchQuery}
+      />
       {selectedMovie && (
         <MovieInfo selectedMovie={selectedMovie} close={closeMovieInfo} />
       )}

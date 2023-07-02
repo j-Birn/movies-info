@@ -53,7 +53,7 @@ const MovieInfo = ({ selectedMovie, close }) => {
             </div>
           </div>
           <div className="shrink-0">
-            <button onClick={close} className="rounded-full">
+            <button onClick={close} className="rounded-full active:scale-75">
               <img className="w-8" src="/close.svg" alt="close" />
             </button>
           </div>
